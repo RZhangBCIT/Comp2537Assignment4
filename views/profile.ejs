@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-areas: "image stats";
+        }
+
+        .image {
+            grid-area: image;
+        }
+
+        .stats {
+            grid-area: stats;
+            padding-top: 15%;
+        }
+
+        @media only screen and (max-width: 700px) {
+            main {
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                grid-template-areas: "image" "stats";
+            }
+
+            .image {
+                grid-area: image;
+                margin: auto;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .stats {
+                grid-area: stats;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="image">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/<%= id %>.png">
+        </div>
+
+        <div class="stats">
+            <h1><%= name %></h1>
+            <h3 id="hp">HP: <%= hp %> <progress value="<%= hp %>" max="255"><%= hp %>%</progress></h3>
+            <h3 id="atk">Attack: <%= attack %> <progress value="<%= attack %>" max="255"><%= attack %>%</progress></h3>
+            <h3 id="def">Defense: <%= defense %> <progress value="<%= defense %>" max="255"><%= defense %>%</progress></h3>
+            <h3 id="specatk">Special Attack: <%= special_attack %> <progress value="<%= special_attack %>" max="255"><%= special_attack %>%</progress></h3>
+            <h3 id="specdef">Special Defense: <%= special_defense %> <progress value="<%= special_defense %>" max="255"><%= special_defense %>%</progress></h3>
+            <h3 id="speed">Speed: <%= speed %> <progress value="<%= speed %>" max="255"><%= speed %>%</progress></h3>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./createAccount.js"></script>
+    <link rel="stylesheet" href="./createAccount.css">
+
+    <title>Create Account</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <main>
+            <p>Sign up for an account</p>
+            <div id="signin_direct">
+                <p>Already have account?</p>
+                <a href="/">Sign in</a>
+            </div>
+            <form id="info_form">
+                <input type="text" placeholder="Username" id="username" name="userName">
+                <input type="text" placeholder="First name" id="first" name="firstName">
+                <input type="text" placeholder="Last name" id="last" name="lastName">
+                <input type="password" placeholder="Password" id="password" name="password">
+                <input type="password" placeholder="Confirm password" id="confirm_password" name="confirmPassword">
+                <button class="signup_submit">Sign up</button>
+            </form>
+
+            <div id="passwords-dont-match-warning" style="background-color: pink; border: 1px solid red; border-radius: 5px; padding: 1%; margin: 1%; visibility: hidden;">Password confirmation does not match given password.</div>
+            <div id="empty-fields-warning" style="background-color: pink; border: 1px solid red; border-radius: 5px; padding: 1%; margin: 1%; visibility: hidden;">Please fill out all fields.</div>
+
+        </main>
+    </div>
+
+</body>
+
+</html>

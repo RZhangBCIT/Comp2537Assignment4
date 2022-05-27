@@ -1,0 +1,30 @@
+{
+  "name": "comp2537_pokemon_one_two",
+  "version": "1.0.0",
+  "description": "Pokemon Database assignment for Comp 2537 BCIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RZhangBCIT/Comp2537_Pokemon_One_Two.git"
+  },
+  "keywords": [
+    "Pokemon"
+  ],
+  "author": "Ray Zhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RZhangBCIT/Comp2537_Pokemon_One_Two/issues"
+  },
+  "homepage": "https://github.com/RZhangBCIT/Comp2537_Pokemon_One_Two#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "heroku": "^7.30.1",
+    "mongoose": "^6.3.4"
+  }
+}

@@ -1,0 +1,91 @@
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    gap: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    border-radius: 5px;
+    width: 100%;
+}
+
+.image_row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+nav a {
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+}
+
+.pokemon_name {
+    text-align: center;
+    background-color: green;
+    font-style: none;
+    font-size: 30px;
+    color: gold;
+}
+
+.pokemon_name:hover {
+    background-color: red;
+    color: silver;
+}
+
+a {
+    text-decoration: none;
+}
+
+#filter {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    background-color: black;
+    height: 70px;
+    padding-top: 10px;
+}
+
+select {
+    height: 50px;
+    width: 100px;
+    justify-content: center;
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 700px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .image_row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pokemon_name {
+        text-align: center;
+        background-color: green;
+        font-style: none;
+        font-size: 30px;
+        color: gold;
+    }
+
+    .pokemon_name:hover {
+        background-color: red;
+        color: silver;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}

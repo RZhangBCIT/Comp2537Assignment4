@@ -1,0 +1,14 @@
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "image stats";
+}
+
+.image {
+    grid-area: image;
+}
+
+.stats {
+    grid-area: stats;
+    background-color: purple;
+}
