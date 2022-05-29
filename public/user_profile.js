@@ -14,7 +14,7 @@ function loadUserInfo() {
             for (i = 0; i < user[0].timeline.length; i++) {
                 $('main').append(`${user[0].timeline[i]}`)
             }
-            $('main').append('<br><button id="logout">Logout</button> <button id="shop">Shop For Pokemon</button>')
+            $('main').append('<br><button id="logout">Logout</button> <button id="shop">Shop For Pokemon</button> <button id="game">Lets Play a Game</button>')
         }
     })
 }
@@ -39,11 +39,22 @@ function searchPage() {
     })
 }
 
+function gamePage() {
+    $.ajax({
+        url: "http://localhost:1989/game",
+        type: "get",
+        success: (res) => {
+            window.location.href="/memory-game.html"
+        }
+    })
+}
+
 function setup() {
     loadUserInfo();
 
     $("body").on("click", "#logout", logOut)
     $("body").on("click", "#shop", searchPage)
+    $("body").on("click", "#game", gamePage)
 }
 
 $(document).ready(setup)
