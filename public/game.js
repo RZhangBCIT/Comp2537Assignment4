@@ -47,6 +47,7 @@ async function flip() {
 
     if (matchedSets >= 6) {
         console.log("Congratulations, you win!")
+        window.location.href="/winner.html"
     }
 }
 
