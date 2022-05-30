@@ -140,6 +140,7 @@ const userSchema = new mongoose.Schema({
     pass: String,
     firstName: String,
     lastName: String,
+    isAdmin: String,
     cart: Array,
     pastOrders: Array,
     timeline: Array
@@ -197,7 +198,8 @@ app.put('/createAccount', function (req, res) {
         'username': req.body.username,
         'pass': req.body.pass,
         'firstName': req.body.firstName,
-        'lastName': req.body.lastName
+        'lastName': req.body.lastName,
+        'isAdmin': "false"
     }, function (err, data) {
         if (err) {
             console.log("Error detected! " + err);
@@ -219,6 +221,10 @@ app.get('/user_profile', (req, res) => {
     res.sendFile(__dirname + '/public/user_profile.html');
 })
 
+app.get('/admin-dashboard', (req, res) => {
+    res.sendFile(__dirname + '/public/admin-dashboard.html');
+})
+
 app.post('/authenticateUser', (req, res) => {
     inputUser = req.body.username;
     inputPass = req.body.pass;
@@ -233,6 +239,24 @@ app.post('/authenticateUser', (req, res) => {
         }
     }))
     console.log(`Welcome, ${req.body.username}!`)
+});
+
+app.post('/authenticateAdmin', (req, res) => {
+    inputUser = req.body.username;
+    inputPass = req.body.pass;
+
+    if (userModel.find({username: inputUser}, (err, user) => {
+        if (err) {
+            console.log(err)
+        } else if (inputPass === user[0].pass && user[0].isAdmin === "true") {
+            req.session.loggedIn = true;
+            req.session.username = user[0].username;
+            res.redirect('/admin-dashboard');
+        } else {
+            console.log("You are not an admin! Please use the regular user login");
+        }
+    }))
+    console.log(`Welcome, admin ${req.body.username}!`)
 });
 
 app.get('/logout', (req, res) => {
