@@ -1,6 +1,24 @@
+body {
+    margin: 0px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
 #game-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 450px;
+    height: 800px;
+    margin-left: 34%;
+}
+
+.back, .front {
+    position: absolute;
+    width: 150px;
+    height: auto;
+}
+
+.card {
+    position: relative;
+    width: 33.3%;
 }
