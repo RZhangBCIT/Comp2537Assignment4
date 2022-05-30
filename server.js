@@ -210,6 +210,55 @@ app.put('/createAccount', function (req, res) {
     });
 });
 
+app.get('/getAllUsers', function(req, res) {
+    userModel.find({}, (err, data) => {
+        if (err) {
+            console.log(err)
+        } else {
+            // console.log("User" + data)
+        }
+        res.send(data);
+    })
+})
+
+app.put('/deleteUser/:username', (req, res) => {
+    userModel.deleteOne({
+        'username': req.params.username
+    }, function (err, data) {
+        if (err) {
+            console.log("An error has occured: " + err);
+        } else {
+            console.log("Delete user data: " + data);
+        }
+        res.send("User successfully deleted!");
+    });
+})
+
+app.post('/promote-user', (req, res) => {
+    userToPromote = req.body.username;
+    if (userModel.find({username: userToPromote}, (err, user) => {
+        if (err) {
+            console.log("Promotion failed! " + err)
+        } else {
+            userModel.updateOne({
+                'username': userToPromote
+            }, {
+                $set: {
+                    'isAdmin': 'true'
+                }
+            }, function (err, data) {
+                if (err) {
+                    console.log("Another error! " + err)
+                } else {
+                    console.log("Promotion data: " + data)
+                }
+                res.send("Promotion successful!")
+            })
+        }
+    }))
+    console.log("Promotion complete!")
+})
+
 // function authenticate(req, res, next) {
 //     if (req.session.authenticated) {
 //         next();

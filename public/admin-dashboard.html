@@ -15,6 +15,17 @@
 <main>
 
 </main>
+<br>
+<form id="info_form" style="visibility: hidden;">
+    <input type="text" placeholder="Username" id="username" name="userName">
+    <input type="text" placeholder="First name" id="first" name="firstName">
+    <input type="text" placeholder="Last name" id="last" name="lastName">
+    <input type="password" placeholder="Password" id="password" name="password">
+    <input type="password" placeholder="Confirm password" id="confirm_password" name="confirmPassword">
+    <button class="create-user">Create User</button>
+</form>
 
+<div id="passwords-dont-match-warning" style="background-color: pink; border: 1px solid red; border-radius: 5px; padding: 1%; margin: 1%; visibility: hidden;">Password confirmation does not match given password.</div>
+<div id="empty-fields-warning" style="background-color: pink; border: 1px solid red; border-radius: 5px; padding: 1%; margin: 1%; visibility: hidden;">Please fill out all fields.</div>
 
 </html>
