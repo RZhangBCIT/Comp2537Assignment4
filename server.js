@@ -236,26 +236,22 @@ app.put('/deleteUser/:username', (req, res) => {
 
 app.post('/promote-user', (req, res) => {
     userToPromote = req.body.username;
-    if (userModel.find({username: userToPromote}, (err, user) => {
-        if (err) {
-            console.log("Promotion failed! " + err)
-        } else {
-            userModel.updateOne({
-                'username': userToPromote
-            }, {
-                $set: {
-                    'isAdmin': 'true'
-                }
-            }, function (err, data) {
-                if (err) {
-                    console.log("Another error! " + err)
-                } else {
-                    console.log("Promotion data: " + data)
-                }
-                res.send("Promotion successful!")
-            })
+    userModel.updateOne({
+        'username': userToPromote
+    }, {
+        $set: {
+            'isAdmin': 'true'
         }
-    }))
+    }, function (err, data) {
+        if (err) {
+            console.log("Another error! " + err)
+        } else {
+            console.log("Promotion data: " + data)
+        }
+        res.send("Promotion successful!")
+    })
+
+
     console.log("Promotion complete!")
 })
 

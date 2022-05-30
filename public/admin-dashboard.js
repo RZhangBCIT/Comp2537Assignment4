@@ -27,8 +27,8 @@ function displayUsers() {
                 $('main').append(
                     `
                     <tr> <td>${showUsers[i].username}</td> <td>${showUsers[i].firstName}</td> <td>${showUsers[i].lastName}</td> <td>${showUsers[i].isAdmin}</td>
-                    <td><button id="promote-a-user">Promote User</button></td>
-                    <td><button id="delete-user">Delete User</button></td> </tr>
+                    <td><button class="promote-a-user" id="${showUsers[i].username}">Promote User</button></td>
+                    <td><button class="delete-user" id="${showUsers[i].username}">Delete User</button></td> </tr>
                     `
                 )
             }
@@ -85,11 +85,12 @@ function showAddUserForm() {
 }
 
 function promoteToAdmin() {
+    console.log("Current username: " + currentUsername)
     $.ajax({
-        url: `http://localhost:1989/promote-user`,
+        url: `/promote-user`,
         type: 'post',
         data: {
-            username: this.username,
+            username: currentUsername,
             isAdmin: 'true'
         },
         success: (log) => {
@@ -124,8 +125,8 @@ function setup() {
     $("body").on("click", "#logout", logOut)
     $("body").on("click", "#add-user", showAddUserForm)
     $('body').on("click", ".create-user", createUser)
-    $('body').on("click", "#promote-a-user", promoteToAdmin)
-    $('body').on("click", "#delete-user", deleteUser)
+    $('body').on("click", ".promote-a-user", promoteToAdmin)
+    $('body').on("click", ".delete-user", deleteUser)
 }
 
 $(document).ready(setup)
