@@ -120,6 +120,10 @@ app.get('/game', (req, res) => {
     res.sendFile(__dirname + '/public/memory-game.html')
 })
 
+app.get('/game-setup', (req, res) => {
+    res.sendFile(__dirname + '/public/game-setup.html')
+})
+
 const bodyparser = require("body-parser");
 const res = require('express/lib/response');
 app.use(bodyparser.urlencoded({

@@ -39,12 +39,12 @@ function searchPage() {
     })
 }
 
-function gamePage() {
+function gameSetup() {
     $.ajax({
-        url: "http://localhost:1989/game",
+        url: "http://localhost:1989/game-setup",
         type: "get",
         success: (res) => {
-            window.location.href="/memory-game.html"
+            window.location.href="/game-setup.html"
         }
     })
 }
@@ -54,7 +54,7 @@ function setup() {
 
     $("body").on("click", "#logout", logOut)
     $("body").on("click", "#shop", searchPage)
-    $("body").on("click", "#game", gamePage)
+    $("body").on("click", "#game", gameSetup)
 }
 
 $(document).ready(setup)
