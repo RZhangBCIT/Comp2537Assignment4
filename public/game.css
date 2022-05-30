@@ -10,15 +10,31 @@ body {
     width: 450px;
     height: 800px;
     margin-left: 34%;
+    perspective: 1000px;
 }
 
 .back, .front {
     position: absolute;
     width: 150px;
     height: auto;
+    backface-visibility: hidden;
 }
 
 .card {
     position: relative;
     width: 33.3%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+.front {
+    transform: rotateY(180deg);
+}
+
+.noClick {
+    pointer-events: none;
 }
